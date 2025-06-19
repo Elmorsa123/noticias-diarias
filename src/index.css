@@ -1,0 +1,154 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --background: 222 47% 11%; /* Dark Slate Blue */
+  --foreground: 210 40% 98%; /* Almost White */
+  
+  --card: 222 47% 14%; /* Slightly Lighter Dark Slate Blue */
+  --card-foreground: 210 40% 98%;
+  
+  --popover: 222 47% 11%;
+  --popover-foreground: 210 40% 98%;
+  
+  --primary: 250 60% 60%; /* Vibrant Purple */
+  --primary-foreground: 210 40% 98%;
+  
+  --secondary: 217 33% 25%; /* Darker Muted Blue */
+  --secondary-foreground: 210 40% 98%;
+  
+  --muted: 217 33% 20%; /* Even Darker Muted Blue */
+  --muted-foreground: 215 20% 65%; /* Light Gray */
+  
+  --accent: 250 60% 60%; 
+  --accent-foreground: 210 40% 98%;
+  
+  --destructive: 0 72% 51%; /* Vibrant Red */
+  --destructive-foreground: 210 40% 98%;
+  
+  --border: 217 33% 25%; /* Darker Muted Blue for borders */
+  --input: 217 33% 22%; /* Slightly darker for input background */
+  --ring: 250 70% 70%; /* Lighter Purple for focus rings */
+  
+  --radius: 0.75rem;
+}
+
+.dark {
+  --background: 222 47% 11%;
+  --foreground: 210 40% 98%;
+  --card: 222 47% 14%;
+  --card-foreground: 210 40% 98%;
+  --popover: 222 47% 11%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 250 60% 60%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 217 33% 25%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 217 33% 20%;
+  --muted-foreground: 215 20% 65%;
+  --accent: 250 60% 60%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 72% 51%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 217 33% 25%;
+  --input: 217 33% 22%;
+  --ring: 250 70% 70%;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  color: hsl(var(--foreground));
+  background-color: hsl(var(--background)); /* Solid dark background */
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+}
+
+/* Custom gradient text for NEXUS Task */
+.gradient-text-nexus {
+  background: linear-gradient(135deg, #a855f7 /* purple-500 */ 0%, #ec4899 /* pink-500 */ 50%, #f97316 /* orange-500 */ 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  border-color: hsl(var(--primary) / 0.5);
+}
+
+/* Status and Priority specific styles adapted for dark theme */
+.status-pending {
+  background-color: hsla(var(--primary), 0.1); /* Use HSL for consistency */
+  color: hsl(var(--primary));
+  border: 1px solid hsla(var(--primary), 0.3);
+}
+
+.status-progress {
+  background-color: hsla(200, 70%, 50%, 0.1); /* Example: Blueish */
+  color: hsl(200, 70%, 60%);
+  border: 1px solid hsla(200, 70%, 50%, 0.3);
+}
+
+.status-completed {
+  background-color: hsla(140, 60%, 40%, 0.1); /* Example: Greenish */
+  color: hsl(140, 60%, 50%);
+  border: 1px solid hsla(140, 60%, 40%, 0.3);
+}
+
+.priority-high {
+  background-color: hsla(0, 70%, 50%, 0.1); /* Example: Reddish */
+  color: hsl(0, 70%, 60%);
+  border: 1px solid hsla(0, 70%, 50%, 0.3);
+}
+
+.priority-medium {
+  background-color: hsla(30, 70%, 50%, 0.1); /* Example: Orangish */
+  color: hsl(30, 70%, 60%);
+  border: 1px solid hsla(30, 70%, 50%, 0.3);
+}
+
+.priority-low {
+  background-color: hsla(180, 50%, 50%, 0.1); /* Example: Cyanish */
+  color: hsl(180, 50%, 60%);
+  border: 1px solid hsla(180, 50%, 50%, 0.3);
+}
+
+/* Custom scrollbar for a more integrated dark theme look */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--secondary));
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary));
+}
+
+/* Ensure select dropdown options in shadcn/ui also respect dark theme if not covered by default */
+select option {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+/* Apply a global dark theme class if not already done by shadcn/ui */
+html.dark {
+  color-scheme: dark;
+}
